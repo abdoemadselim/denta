@@ -393,217 +393,226 @@ svg { flex-shrink: 0; }
 }
 .trust__stars { color: #FBBF24; font-size: .78rem; }
 
-/* ── Tooth Scene (Hero Visual) ─────────────────────────────── */
+/* ── Dashboard mockup ──────────────────────────────────────── */
 .hero__visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* keep the visual visible on tablet too */
 }
 
-/* The whole scene container */
-.tooth-scene {
-  position: relative;
-  width: 420px;
-  height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.mockup {
+  width: 100%;
+  max-width: 520px;
+  background: var(--grey-900);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-xl), 0 0 0 1px rgba(255,255,255,.08) inset;
+  animation: mockupFloat 6s ease-in-out infinite;
 }
-
-/* ── Orbit rings ──────────────────────────────────────────── */
-.ts__ring {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-/* Outer glow ring: large, blurred, slow pulse */
-.ts__ring--outer {
-  width: 380px; height: 380px;
-  background: radial-gradient(circle,
-    rgba(59,130,246,.10) 0%,
-    rgba(59,130,246,.04) 50%,
-    transparent 70%
-  );
-  animation: ringPulse 4s ease-in-out infinite;
-}
-
-/* Inner dashed orbit line that spins */
-.ts__ring--inner {
-  width: 290px; height: 290px;
-  border: 1.5px dashed rgba(147,197,253,.35);
-  animation: ringSpinSlow 22s linear infinite;
-}
-
-@keyframes ringPulse {
-  0%,100% { transform: scale(1);   opacity: 1; }
-  50%      { transform: scale(1.08); opacity: .6; }
-}
-@keyframes ringSpinSlow {
-  to { transform: rotate(360deg); }
-}
-
-/* ── Central tooth ────────────────────────────────────────── */
-.ts__tooth-wrap {
-  position: relative;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ts__tooth {
-  width: 148px;
-  /* The main float animation */
-  animation: toothFloat 5s ease-in-out infinite;
-  transform-origin: center 55%;
-  /* 3D-style tilt on hover handled in JS */
-  transition: filter .3s;
-}
-.ts__tooth:hover {
-  filter: drop-shadow(0 24px 48px rgba(59,130,246,.38));
-}
-
-@keyframes toothFloat {
-  0%,100% { transform: translateY(0)   rotate(0deg); }
-  30%      { transform: translateY(-14px) rotate(.8deg); }
-  70%      { transform: translateY(-8px)  rotate(-.5deg); }
-}
-
-/* Groove lines draw themselves on load */
-.tooth-groove {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 60;
-  animation: drawGroove 1.2s var(--ease) 0.6s forwards;
-}
-@keyframes drawGroove {
-  to { stroke-dashoffset: 0; }
-}
-
-/* Shine shimmer */
-.tooth-shine {
-  animation: shinePulse 3.5s ease-in-out infinite;
-}
-@keyframes shinePulse {
-  0%,100% { opacity: 1; }
-  50%      { opacity: .55; }
-}
-
-/* Root lines */
-.tooth-root {
-  stroke-dasharray: 40;
-  stroke-dashoffset: 40;
-  animation: drawGroove 1s var(--ease) 1s forwards;
-}
-
-/* ── Sparkle particles ────────────────────────────────────── */
-.sparkle {
-  position: absolute;
-  font-size: .75rem;
-  color: var(--blue-400);
-  pointer-events: none;
-  animation: sparklePop ease-in-out infinite;
-  opacity: 0;
-}
-
-.sparkle--1 { top: -18px; left: 20px;  animation-duration: 2.8s; animation-delay: 0s;   font-size: .9rem; }
-.sparkle--2 { top: 10px;  right: -16px; animation-duration: 3.2s; animation-delay: .6s; }
-.sparkle--3 { bottom: 30px; left: -18px; animation-duration: 2.6s; animation-delay: 1.2s; }
-.sparkle--4 { top: -10px; right: 28px;  animation-duration: 3.5s; animation-delay: 1.8s; color: var(--blue-300); font-size: 1rem; }
-.sparkle--5 { bottom: 10px; right: -12px; animation-duration: 2.4s; animation-delay: .4s; font-size: 1.2rem; color: #60a5fa; }
-.sparkle--6 { top: 50%;  left: -22px;  animation-duration: 3s;   animation-delay: 2s;  }
-
-@keyframes sparklePop {
-  0%   { opacity: 0; transform: scale(0)   translateY(0); }
-  20%  { opacity: 1; transform: scale(1.2) translateY(-4px); }
-  60%  { opacity: .8; transform: scale(1)  translateY(-8px); }
-  100% { opacity: 0; transform: scale(.6)  translateY(-14px); }
-}
-
-/* ── Orbiting feature pills ──────────────────────────────── */
-.ts__pill {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: .4rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-full);
-  padding: .4rem .9rem;
-  font-family: var(--font-display);
-  font-size: .78rem;
-  font-weight: 600;
-  color: var(--grey-700);
-  box-shadow: var(--sh-md);
-  white-space: nowrap;
-  z-index: 5;
-  /* Each pill floats independently */
-  animation: pillFloat ease-in-out infinite;
-}
-.ts__pill-icon { font-size: .95rem; }
-
-/* Place pills at 4 compass points */
-.ts__pill--1 { top: 6%;   left: 50%; transform: translateX(-50%); animation-duration: 4.5s; animation-delay: 0s; }
-.ts__pill--2 { top: 42%;  right: 0;  animation-duration: 5s;   animation-delay: -1.2s; }
-.ts__pill--3 { bottom: 8%; left: 50%; transform: translateX(-50%); animation-duration: 4.8s; animation-delay: -.6s; }
-.ts__pill--4 { top: 42%;  left: 0;   animation-duration: 5.2s; animation-delay: -2s; }
-
-@keyframes pillFloat {
+@keyframes mockupFloat {
   0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-7px); }
-}
-/* Override for pills with translateX too */
-.ts__pill--1, .ts__pill--3 {
-  animation-name: pillFloatCenter;
-}
-@keyframes pillFloatCenter {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(-7px); }
+  50%      { transform: translateY(-10px); }
 }
 
-/* ── Floating stat cards ─────────────────────────────────── */
-.ts__card {
-  position: absolute;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  box-shadow: var(--sh-lg);
-  padding: .7rem 1rem;
+.mockup__bar {
   display: flex;
   align-items: center;
-  gap: .6rem;
-  z-index: 6;
-  animation: floatCard 6s ease-in-out infinite;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  background: rgba(255,255,255,.04);
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
-.ts__card--top    { top: 0;    right: -2.5rem; animation-delay: -1.5s; }
-.ts__card--bottom { bottom: 2rem; left: -2.5rem; animation-delay: -3.5s; }
-
-.ts__card-icon { font-size: 1.4rem; }
-.ts__card-text { display: flex; flex-direction: column; gap: .05rem; }
-.ts__card-text strong { font-family: var(--font-display); font-size: .78rem; color: var(--grey-800); white-space: nowrap; }
-.ts__card-text span   { font-size: .68rem; color: var(--grey-400); white-space: nowrap; }
-
-/* Pulsing live dot on bottom card */
-.ts__card-pulse {
+.mockup__dots { display: flex; gap: .35rem; }
+.mockup__dots span {
   width: 10px; height: 10px;
   border-radius: 50%;
-  background: #22c55e;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 0 rgba(34,197,94,.4);
-  animation: liveGreen 2s ease-out infinite;
+  background: rgba(255,255,255,.15);
 }
-@keyframes liveGreen {
-  0%   { box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
-  70%  { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+.mockup__bar-title {
+  font-family: var(--font-display);
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  margin-right: auto;
 }
 
+.mockup__body {
+  display: flex;
+  height: 300px;
+}
+
+/* Sidebar */
+.mockup__sidebar {
+  width: 48px;
+  background: rgba(255,255,255,.04);
+  border-left: 1px solid rgba(255,255,255,.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .75rem 0;
+  gap: .5rem;
+  flex-shrink: 0;
+}
+.sidebar__brand { margin-bottom: .5rem; }
+.sidebar__nav { display: flex; flex-direction: column; gap: .25rem; width: 100%; align-items: center; }
+.si {
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-sm);
+  font-size: .9rem;
+  color: rgba(255,255,255,.3);
+  cursor: default;
+  transition: all .18s;
+}
+.si--active {
+  background: rgba(59,130,246,.25);
+  color: var(--blue-400);
+}
+
+/* Main */
+.mockup__main {
+  flex: 1;
+  padding: .85rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.mockup__stats {
+  display: flex;
+  gap: .5rem;
+}
+.mstat {
+  flex: 1;
+  background: rgba(255,255,255,.05);
+  border-radius: var(--r-md);
+  padding: .5rem .6rem;
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.mstat--blue { background: rgba(59,130,246,.18); }
+.mstat__val {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+.mstat__lbl {
+  font-family: var(--font-display);
+  font-size: .62rem;
+  color: rgba(255,255,255,.4);
+}
+.mstat--blue .mstat__lbl { color: var(--blue-300, #93c5fd); }
+
+.mockup__row-label {
+  font-family: var(--font-display);
+  font-size: .65rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.3);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: .1rem;
+}
+
+.mockup__patients { display: flex; flex-direction: column; gap: .35rem; }
+.mp {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(255,255,255,.04);
+  border-radius: var(--r-sm);
+  padding: .4rem .5rem;
+}
+.mp__av {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--c, #DBEAFE);
+  color: var(--t, #1D4ED8);
+  font-family: var(--font-display);
+  font-size: .72rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.mp__info { flex: 1; display: flex; flex-direction: column; }
+.mp__name { font-family: var(--font-display); font-size: .7rem; font-weight: 600; color: rgba(255,255,255,.8); }
+.mp__sub  { font-size: .6rem; color: rgba(255,255,255,.35); }
+.mp__badge {
+  font-family: var(--font-display);
+  font-size: .58rem;
+  font-weight: 700;
+  padding: .15rem .4rem;
+  border-radius: var(--r-full);
+  flex-shrink: 0;
+}
+.mp__badge--ok   { background: rgba(34,197,94,.2);  color: #86efac; }
+.mp__badge--wait { background: rgba(234,179,8,.15); color: #fde68a; }
+
+.mockup__chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 40px;
+  margin-top: auto;
+}
+.cb {
+  flex: 1;
+  height: var(--h, 50%);
+  background: rgba(255,255,255,.12);
+  border-radius: 2px 2px 0 0;
+  transition: background .18s;
+}
+.cb--hi { background: var(--blue-500); }
+
+/* Floating hero cards */
+.hero__float {
+  position: absolute;
+  background: var(--white);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-lg);
+  border: 1px solid var(--border);
+  padding: .8rem 1rem;
+  animation: floatCard 6s ease-in-out infinite;
+}
+.hero__float--notif {
+  bottom: -1.5rem;
+  right: -2rem;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  animation-delay: -2s;
+}
+.hero__float--saved {
+  top: -1.5rem;
+  left: -2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  min-width: 140px;
+  animation-delay: -4s;
+}
 @keyframes floatCard {
   0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-9px); }
+  50%      { transform: translateY(-8px); }
+}
+.hf__icon { font-size: 1.3rem; }
+.hf__text { display: flex; flex-direction: column; }
+.hf__text strong { font-family: var(--font-display); font-size: .8rem; color: var(--grey-800); }
+.hf__text span    { font-size: .7rem; color: var(--grey-400); }
+.hf__bar { height: 8px; background: var(--grey-100); border-radius: var(--r-full); }
+.hf__bar--short { width: 55%; }
+.hf__check {
+  font-family: var(--font-display);
+  font-size: .72rem;
+  font-weight: 700;
+  color: #16a34a;
 }
 
 /* Scroll cue */
@@ -1273,13 +1282,7 @@ svg { flex-shrink: 0; }
 /* Tablet */
 @media (max-width: 1024px) {
   .hero__container { grid-template-columns: 1fr; }
-  .hero__visual { margin-top: 1rem; }
-  .tooth-scene { width: 340px; height: 380px; }
-  .ts__tooth { width: 118px; }
-  .ts__ring--outer { width: 300px; height: 300px; }
-  .ts__ring--inner { width: 230px; height: 230px; }
-  .ts__card--top    { top: 0;    right: -1rem; }
-  .ts__card--bottom { bottom: 1rem; left: -1rem; }
+  .hero__visual { display: none; }
   .hero__copy { align-items: center; text-align: center; }
   .hero__sub { text-align: center; }
   .hero__cta-row, .hero__trust { justify-content: center; }

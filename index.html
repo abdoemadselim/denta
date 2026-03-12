@@ -91,149 +91,70 @@
         </div>
       </div>
 
-      <!-- Visual: animated tooth scene -->
+      <!-- Visual: dashboard mockup -->
       <div class="hero__visual" aria-hidden="true">
-        <div class="tooth-scene">
-
-          <!-- Outer glow ring (slow spin) -->
-          <div class="ts__ring ts__ring--outer"></div>
-          <!-- Inner dashed orbit -->
-          <div class="ts__ring ts__ring--inner"></div>
-
-          <!-- Central tooth SVG -->
-          <div class="ts__tooth-wrap">
-            <svg class="ts__tooth" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <!-- Main body gradient: white → light-blue -->
-                <linearGradient id="tg-body" x1="20" y1="0" x2="140" y2="200" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%"   stop-color="#FFFFFF"/>
-                  <stop offset="55%"  stop-color="#EFF6FF"/>
-                  <stop offset="100%" stop-color="#BFDBFE"/>
-                </linearGradient>
-                <!-- Shine gradient -->
-                <linearGradient id="tg-shine" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%"   stop-color="#FFFFFF" stop-opacity=".9"/>
-                  <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-                </linearGradient>
-                <!-- Stroke gradient -->
-                <linearGradient id="tg-stroke" x1="20" y1="0" x2="140" y2="200" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%"   stop-color="#93C5FD"/>
-                  <stop offset="100%" stop-color="#1D4ED8"/>
-                </linearGradient>
-                <!-- Root shadow -->
-                <linearGradient id="tg-root" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%"   stop-color="#BFDBFE"/>
-                  <stop offset="100%" stop-color="#93C5FD"/>
-                </linearGradient>
-                <!-- Drop shadow filter -->
-                <filter id="tooth-shadow" x="-20%" y="-10%" width="140%" height="130%">
-                  <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#3B82F6" flood-opacity=".22"/>
-                  <feDropShadow dx="0" dy="4"  stdDeviation="6"  flood-color="#1D4ED8" flood-opacity=".15"/>
-                </filter>
-                <!-- Glow filter for shine -->
-                <filter id="shine-glow">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                </filter>
-              </defs>
-
-              <!-- ── Tooth crown (main body) ── -->
-              <path class="tooth-body"
-                d="M80 8
-                   C58 8 28 22 28 52
-                   C28 66 32 78 40 88
-                   L50 148
-                   C52 158 56 164 62 164
-                   C68 164 71 158 73 150
-                   L80 128
-                   L87 150
-                   C89 158 92 164 98 164
-                   C104 164 108 158 110 148
-                   L120 88
-                   C128 78 132 66 132 52
-                   C132 22 102 8 80 8 Z"
-                fill="url(#tg-body)"
-                stroke="url(#tg-stroke)"
-                stroke-width="2.5"
-                stroke-linejoin="round"
-                filter="url(#tooth-shadow)"
-              />
-
-              <!-- ── Crown surface grooves (occlusal lines) ── -->
-              <path class="tooth-groove"
-                d="M58 55 Q72 48 80 55 Q88 62 96 55"
-                fill="none" stroke="#93C5FD" stroke-width="1.5"
-                stroke-linecap="round" opacity=".6"
-              />
-              <path class="tooth-groove"
-                d="M80 55 L80 75"
-                fill="none" stroke="#93C5FD" stroke-width="1.2"
-                stroke-linecap="round" opacity=".45"
-              />
-
-              <!-- ── Specular highlight (shine) ── -->
-              <ellipse class="tooth-shine"
-                cx="62" cy="42" rx="14" ry="22"
-                fill="url(#tg-shine)"
-                transform="rotate(-12 62 42)"
-                filter="url(#shine-glow)"
-              />
-
-              <!-- ── Small secondary shine dot ── -->
-              <circle cx="96" cy="36" r="5"
-                fill="white" opacity=".55"
-              />
-
-              <!-- ── Root canal lines ── -->
-              <line class="tooth-root" x1="73" y1="160" x2="68" y2="192"
-                stroke="url(#tg-root)" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
-              <line class="tooth-root" x1="87" y1="160" x2="92" y2="192"
-                stroke="url(#tg-root)" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
-              <line class="tooth-root" x1="80" y1="162" x2="80" y2="196"
-                stroke="url(#tg-root)" stroke-width="2"   stroke-linecap="round" opacity=".4"/>
-            </svg>
-
-            <!-- Sparkle particles around the tooth (CSS animated) -->
-            <span class="sparkle sparkle--1">✦</span>
-            <span class="sparkle sparkle--2">✦</span>
-            <span class="sparkle sparkle--3">✦</span>
-            <span class="sparkle sparkle--4">+</span>
-            <span class="sparkle sparkle--5">·</span>
-            <span class="sparkle sparkle--6">✦</span>
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><span></span><span></span><span></span></div>
+            <span class="mockup__bar-title">لوحة التحكم — دنتا</span>
           </div>
-
-          <!-- Orbiting feature pills -->
-          <div class="ts__pill ts__pill--1">
-            <span class="ts__pill-icon">🔔</span> تذكيرات ذكية
-          </div>
-          <div class="ts__pill ts__pill--2">
-            <span class="ts__pill-icon">📋</span> سجلات المرضى
-          </div>
-          <div class="ts__pill ts__pill--3">
-            <span class="ts__pill-icon">📊</span> تقارير فورية
-          </div>
-          <div class="ts__pill ts__pill--4">
-            <span class="ts__pill-icon">💊</span> إدارة العلاج
-          </div>
-
-          <!-- Floating stat cards -->
-          <div class="ts__card ts__card--top">
-            <div class="ts__card-icon">😁</div>
-            <div class="ts__card-text">
-              <strong>٩٨٪ رضا المرضى</strong>
-              <span>متوسط تقييم العيادات</span>
+          <div class="mockup__body">
+            <!-- Sidebar -->
+            <aside class="mockup__sidebar">
+              <div class="sidebar__brand">
+                <svg width="16" height="18" viewBox="0 0 36 40" fill="none"><path d="M18 1C10.5 1 3 7 3 15c0 4 1.5 7.5 4 10.5L9.5 37C10 39.5 11.5 40 13 40s2.5-1 3-3.5L18 30l2 6.5c.5 2.5 1.5 3.5 3 3.5s3-.5 3.5-3L29 25.5C31.5 22.5 33 19 33 15 33 7 25.5 1 18 1z" fill="#3B82F6"/></svg>
+              </div>
+              <div class="sidebar__nav">
+                <div class="si si--active">⊞</div>
+                <div class="si">♡</div>
+                <div class="si">◷</div>
+                <div class="si">✉</div>
+              </div>
+            </aside>
+            <!-- Main -->
+            <div class="mockup__main">
+              <div class="mockup__stats">
+                <div class="mstat mstat--blue"><span class="mstat__val">٢٤٨</span><span class="mstat__lbl">مريض</span></div>
+                <div class="mstat"><span class="mstat__val">١٢</span><span class="mstat__lbl">موعد اليوم</span></div>
+                <div class="mstat"><span class="mstat__val">٩٨٪</span><span class="mstat__lbl">رضا</span></div>
+              </div>
+              <div class="mockup__row-label">المرضى الأخيرة</div>
+              <div class="mockup__patients">
+                <div class="mp">
+                  <div class="mp__av" style="--c:#DBEAFE;--t:#1D4ED8">أ</div>
+                  <div class="mp__info"><div class="mp__name">أحمد المنصور</div><div class="mp__sub">غد ١٠ ص · تلبيس</div></div>
+                  <div class="mp__badge mp__badge--ok">مؤكد</div>
+                </div>
+                <div class="mp">
+                  <div class="mp__av" style="--c:#E0E7FF;--t:#3730A3">س</div>
+                  <div class="mp__info"><div class="mp__name">سارة الزهراني</div><div class="mp__sub">غد ١١ ص · تقويم</div></div>
+                  <div class="mp__badge mp__badge--wait">بانتظار</div>
+                </div>
+              </div>
+              <div class="mockup__row-label">الزيارات هذا الشهر</div>
+              <div class="mockup__chart">
+                <div class="cb" style="--h:55%"></div>
+                <div class="cb" style="--h:72%"></div>
+                <div class="cb" style="--h:48%"></div>
+                <div class="cb" style="--h:88%"></div>
+                <div class="cb cb--hi" style="--h:65%"></div>
+                <div class="cb" style="--h:91%"></div>
+                <div class="cb" style="--h:77%"></div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="ts__card ts__card--bottom">
-            <div class="ts__card-pulse"></div>
-            <div class="ts__card-text">
-              <strong>↓ ٦٥٪ غياب</strong>
-              <span>بفضل التذكيرات التلقائية</span>
-            </div>
-          </div>
-
-        </div><!-- /.tooth-scene -->
+        <!-- Floating cards -->
+        <div class="hero__float hero__float--notif">
+          <span class="hf__icon">🔔</span>
+          <div class="hf__text"><strong>٣ تذكيرات أُرسلت</strong><span>مواعيد الغد تلقائياً</span></div>
+        </div>
+        <div class="hero__float hero__float--saved">
+          <div class="hf__bar"></div>
+          <div class="hf__bar hf__bar--short"></div>
+          <span class="hf__check">✓ تم الحفظ</span>
+        </div>
       </div>
 
     </div>

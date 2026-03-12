@@ -158,33 +158,17 @@
     });
   });
 
-  /* ── 7. Tooth 3D tilt on mouse move ────────────────────── */
-  var toothSvg  = document.querySelector('.ts__tooth');
-  var toothWrap = document.querySelector('.tooth-scene');
-
-  if (toothSvg && toothWrap) {
-    toothWrap.addEventListener('mousemove', function (e) {
-      var rect = toothWrap.getBoundingClientRect();
-      var cx   = rect.left + rect.width  / 2;
-      var cy   = rect.top  + rect.height / 2;
-      var dx   = (e.clientX - cx) / (rect.width  / 2);
-      var dy   = (e.clientY - cy) / (rect.height / 2);
-      // Pause float animation while user is hovering
-      toothSvg.style.animationPlayState = 'paused';
-      toothSvg.style.transform = [
-        'rotateX(' + (-dy * 12) + 'deg)',
-        'rotateY(' + ( dx * 12) + 'deg)',
-        'translateY(-6px)'
-      ].join(' ');
-      toothSvg.style.transition = 'transform .12s ease';
+  /* ── 7. Mockup chart bar hover highlight ───────────────── */
+  document.querySelectorAll('.cb').forEach(function (bar) {
+    bar.addEventListener('mouseenter', function () {
+      this.style.background = 'rgba(59,130,246,.5)';
     });
-
-    toothWrap.addEventListener('mouseleave', function () {
-      toothSvg.style.transform = '';
-      toothSvg.style.transition = 'transform .6s ease';
-      toothSvg.style.animationPlayState = 'running';
+    bar.addEventListener('mouseleave', function () {
+      if (!this.classList.contains('cb--hi')) {
+        this.style.background = '';
+      }
     });
-  }
+  });
 
   /* ── 8. Active nav link on scroll ──────────────────────── */
   var sections = document.querySelectorAll('section[id]');
