@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دنتا — نظام إدارة عيادات الأسنان</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Tajawal: punchy Arabic display · IBM Plex Sans Arabic: clean body -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================= -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <svg class="nav__logo-mark" viewBox="0 0 36 40" fill="none" aria-hidden="true">
+          <path d="M18 1C10.5 1 3 7 3 15c0 4 1.5 7.5 4 10.5L9.5 37C10 39.5 11.5 40 13 40s2.5-1 3-3.5L18 30l2 6.5c.5 2.5 1.5 3.5 3 3.5s3-.5 3.5-3L29 25.5C31.5 22.5 33 19 33 15 33 7 25.5 1 18 1z" fill="url(#navGrad)"/>
+          <defs>
+            <linearGradient id="navGrad" x1="3" y1="1" x2="33" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#3B82F6"/>
+              <stop offset="100%" stop-color="#1D4ED8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav__logo-text">دنتا</span>
+      </a>
+
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#features">المميزات</a></li>
+        <li><a href="#testimonials">آراء العملاء</a></li>
+        <li><a href="#footer">تواصل معنا</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <a href="#" class="btn btn--ghost">تسجيل الدخول</a>
+        <a href="#" class="btn btn--primary">ابدأ مجاناً</a>
+        <button class="nav__burger" id="burger" aria-label="فتح القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+  <section class="hero" id="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+    <div class="hero__container">
+
+      <!-- Copy side -->
+      <div class="hero__copy">
+        <div class="hero__eyebrow">
+          <span class="eyebrow__dot"></span>
+          النظام الأول عربياً لإدارة عيادات الأسنان
+        </div>
+
+        <h1 class="hero__headline">
+          عيادتك بكامل قوتها
+          <span class="hero__headline-accent">في شاشة واحدة</span>
+        </h1>
+
+        <p class="hero__sub">
+          سجّل مرضاك، تابع زياراتهم، أرسل تذكيرات ذكية — كل ذلك من منصة واحدة مصممة خصيصاً لطبيب الأسنان العربي.
+        </p>
+
+        <div class="hero__cta-row">
+          <a href="#" class="btn btn--primary btn--lg">
+            جرّب النظام مجاناً
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#features" class="btn btn--outline btn--lg">اكتشف المميزات</a>
+        </div>
+
+        <div class="hero__trust">
+          <div class="trust__avatars">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=d1&backgroundColor=dbeafe" alt="" width="32" height="32" />
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=d2&backgroundColor=bfdbfe" alt="" width="32" height="32" />
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=d3&backgroundColor=93c5fd" alt="" width="32" height="32" />
+          </div>
+          <p class="trust__copy">+٢٠٠٠ طبيب يثقون بدنتا <span class="trust__stars">★★★★★</span></p>
+        </div>
+      </div>
+
+      <!-- Visual: animated tooth scene -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="tooth-scene">
+
+          <!-- Outer glow ring (slow spin) -->
+          <div class="ts__ring ts__ring--outer"></div>
+          <!-- Inner dashed orbit -->
+          <div class="ts__ring ts__ring--inner"></div>
+
+          <!-- Central tooth SVG -->
+          <div class="ts__tooth-wrap">
+            <svg class="ts__tooth" viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Main body gradient: white → light-blue -->
+                <linearGradient id="tg-body" x1="20" y1="0" x2="140" y2="200" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%"   stop-color="#FFFFFF"/>
+                  <stop offset="55%"  stop-color="#EFF6FF"/>
+                  <stop offset="100%" stop-color="#BFDBFE"/>
+                </linearGradient>
+                <!-- Shine gradient -->
+                <linearGradient id="tg-shine" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%"   stop-color="#FFFFFF" stop-opacity=".9"/>
+                  <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+                </linearGradient>
+                <!-- Stroke gradient -->
+                <linearGradient id="tg-stroke" x1="20" y1="0" x2="140" y2="200" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%"   stop-color="#93C5FD"/>
+                  <stop offset="100%" stop-color="#1D4ED8"/>
+                </linearGradient>
+                <!-- Root shadow -->
+                <linearGradient id="tg-root" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"   stop-color="#BFDBFE"/>
+                  <stop offset="100%" stop-color="#93C5FD"/>
+                </linearGradient>
+                <!-- Drop shadow filter -->
+                <filter id="tooth-shadow" x="-20%" y="-10%" width="140%" height="130%">
+                  <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#3B82F6" flood-opacity=".22"/>
+                  <feDropShadow dx="0" dy="4"  stdDeviation="6"  flood-color="#1D4ED8" flood-opacity=".15"/>
+                </filter>
+                <!-- Glow filter for shine -->
+                <filter id="shine-glow">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              <!-- ── Tooth crown (main body) ── -->
+              <path class="tooth-body"
+                d="M80 8
+                   C58 8 28 22 28 52
+                   C28 66 32 78 40 88
+                   L50 148
+                   C52 158 56 164 62 164
+                   C68 164 71 158 73 150
+                   L80 128
+                   L87 150
+                   C89 158 92 164 98 164
+                   C104 164 108 158 110 148
+                   L120 88
+                   C128 78 132 66 132 52
+                   C132 22 102 8 80 8 Z"
+                fill="url(#tg-body)"
+                stroke="url(#tg-stroke)"
+                stroke-width="2.5"
+                stroke-linejoin="round"
+                filter="url(#tooth-shadow)"
+              />
+
+              <!-- ── Crown surface grooves (occlusal lines) ── -->
+              <path class="tooth-groove"
+                d="M58 55 Q72 48 80 55 Q88 62 96 55"
+                fill="none" stroke="#93C5FD" stroke-width="1.5"
+                stroke-linecap="round" opacity=".6"
+              />
+              <path class="tooth-groove"
+                d="M80 55 L80 75"
+                fill="none" stroke="#93C5FD" stroke-width="1.2"
+                stroke-linecap="round" opacity=".45"
+              />
+
+              <!-- ── Specular highlight (shine) ── -->
+              <ellipse class="tooth-shine"
+                cx="62" cy="42" rx="14" ry="22"
+                fill="url(#tg-shine)"
+                transform="rotate(-12 62 42)"
+                filter="url(#shine-glow)"
+              />
+
+              <!-- ── Small secondary shine dot ── -->
+              <circle cx="96" cy="36" r="5"
+                fill="white" opacity=".55"
+              />
+
+              <!-- ── Root canal lines ── -->
+              <line class="tooth-root" x1="73" y1="160" x2="68" y2="192"
+                stroke="url(#tg-root)" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+              <line class="tooth-root" x1="87" y1="160" x2="92" y2="192"
+                stroke="url(#tg-root)" stroke-width="1.8" stroke-linecap="round" opacity=".5"/>
+              <line class="tooth-root" x1="80" y1="162" x2="80" y2="196"
+                stroke="url(#tg-root)" stroke-width="2"   stroke-linecap="round" opacity=".4"/>
+            </svg>
+
+            <!-- Sparkle particles around the tooth (CSS animated) -->
+            <span class="sparkle sparkle--1">✦</span>
+            <span class="sparkle sparkle--2">✦</span>
+            <span class="sparkle sparkle--3">✦</span>
+            <span class="sparkle sparkle--4">+</span>
+            <span class="sparkle sparkle--5">·</span>
+            <span class="sparkle sparkle--6">✦</span>
+          </div>
+
+          <!-- Orbiting feature pills -->
+          <div class="ts__pill ts__pill--1">
+            <span class="ts__pill-icon">🔔</span> تذكيرات ذكية
+          </div>
+          <div class="ts__pill ts__pill--2">
+            <span class="ts__pill-icon">📋</span> سجلات المرضى
+          </div>
+          <div class="ts__pill ts__pill--3">
+            <span class="ts__pill-icon">📊</span> تقارير فورية
+          </div>
+          <div class="ts__pill ts__pill--4">
+            <span class="ts__pill-icon">💊</span> إدارة العلاج
+          </div>
+
+          <!-- Floating stat cards -->
+          <div class="ts__card ts__card--top">
+            <div class="ts__card-icon">😁</div>
+            <div class="ts__card-text">
+              <strong>٩٨٪ رضا المرضى</strong>
+              <span>متوسط تقييم العيادات</span>
+            </div>
+          </div>
+
+          <div class="ts__card ts__card--bottom">
+            <div class="ts__card-pulse"></div>
+            <div class="ts__card-text">
+              <strong>↓ ٦٥٪ غياب</strong>
+              <span>بفضل التذكيرات التلقائية</span>
+            </div>
+          </div>
+
+        </div><!-- /.tooth-scene -->
+      </div>
+
+    </div>
+
+    <a href="#features" class="hero__scroll" aria-label="انتقل للأسفل">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+
+  <!-- =========================================================
+       FEATURES  —  3 full-bleed panels, scroll one by one
+  ========================================================= -->
+  <section class="features" id="features">
+
+    <!-- ── Panel 1 · Notifications ── -->
+    <div class="fp" id="fp-1">
+      <!-- Illustration BG -->
+      <div class="fp__bg fp__bg--notif" aria-hidden="true">
+        <!-- Decorative repeating @ symbols suggesting alerts -->
+        <div class="fp__bg-deco">
+          <span>🔔</span><span>✉</span><span>📱</span><span>🔔</span>
+          <span>✉</span><span>📱</span><span>🔔</span><span>✉</span>
+        </div>
+        <div class="fp__bg-glow fp__bg-glow--blue"></div>
+      </div>
+
+      <div class="fp__inner">
+        <div class="fp__copy reveal">
+          <span class="fp__num">٠١</span>
+          <span class="section-tag">نظام التذكيرات</span>
+          <h2 class="fp__title">تذكيرات تصل<br>قبل أن ينسى المريض</h2>
+          <p class="fp__desc">يرسل النظام تلقائياً تذكيرات الموعد عبر واتساب والرسائل القصيرة. اضبط التوقيت مرة واحدة — والنظام يتولى الباقي.</p>
+          <ul class="fp__list">
+            <li><span class="fp__bullet">✦</span> تذكيرات قبل ٢٤ و٢ ساعة من الموعد</li>
+            <li><span class="fp__bullet">✦</span> رسائل مخصصة باسم المريض</li>
+            <li><span class="fp__bullet">✦</span> تقليل الغياب بنسبة تصل ٦٥٪</li>
+          </ul>
+        </div>
+
+        <div class="fp__visual reveal reveal--delay">
+          <!-- Phone mockup -->
+          <div class="phone">
+            <div class="phone__shell">
+              <div class="phone__notch"></div>
+              <div class="phone__screen">
+                <div class="chat__header">
+                  <div class="chat__av">د</div>
+                  <div class="chat__name">دنتا — د. محمد</div>
+                  <div class="chat__online"></div>
+                </div>
+                <div class="chat__msgs">
+                  <div class="msg msg--in">
+                    مرحباً أحمد 👋 تذكير بموعدك <strong>غداً ١٠:٠٠ ص</strong> لدى عيادتنا. نراك قريباً! 🦷
+                    <span class="msg__time">٩:٠٠ م ✓✓</span>
+                  </div>
+                  <div class="msg msg--action">تأكيد الحضور ✓</div>
+                  <div class="msg msg--out">شكراً، سأكون موجوداً ✅<span class="msg__time">٩:٠١ م ✓✓</span></div>
+                </div>
+              </div>
+            </div>
+            <!-- Glow under phone -->
+            <div class="phone__glow"></div>
+          </div>
+
+          <!-- Stats chip -->
+          <div class="fp__chip fp__chip--blue">
+            <span class="chip__val">↓ ٦٥٪</span>
+            <span class="chip__lbl">نسبة الغياب</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Panel 2 · Records ── -->
+    <div class="fp fp--alt" id="fp-2">
+      <div class="fp__bg fp__bg--records" aria-hidden="true">
+        <div class="fp__bg-deco fp__bg-deco--grid"></div>
+        <div class="fp__bg-glow fp__bg-glow--indigo"></div>
+      </div>
+
+      <div class="fp__inner">
+        <div class="fp__copy reveal">
+          <span class="fp__num">٠٢</span>
+          <span class="section-tag">سجلات المرضى</span>
+          <h2 class="fp__title">ملف المريض الكامل<br>في لحظة واحدة</h2>
+          <p class="fp__desc">كل ما يتعلق بمريضك — التاريخ الطبي، الصور، الوصفات، وخطط العلاج — مرتّب ومتاح بنقرة واحدة.</p>
+          <ul class="fp__list">
+            <li><span class="fp__bullet">✦</span> سجل طبي كامل ومؤرخ</li>
+            <li><span class="fp__bullet">✦</span> صور الأسنان والأشعة بجودة عالية</li>
+            <li><span class="fp__bullet">✦</span> تصدير ملف PDF بنقرة واحدة</li>
+          </ul>
+        </div>
+
+        <div class="fp__visual reveal reveal--delay">
+          <div class="rcard">
+            <div class="rcard__head">
+              <div class="rcard__av">خ</div>
+              <div class="rcard__info">
+                <div class="rcard__name">خالد إبراهيم</div>
+                <div class="rcard__meta">٣٤ سنة · ذكر · لا حساسية</div>
+              </div>
+              <span class="rcard__status">نشط</span>
+            </div>
+            <div class="rcard__divider"></div>
+            <div class="rcard__section">سجل الزيارات</div>
+            <div class="rcard__visits">
+              <div class="rv">
+                <div class="rv__dot rv__dot--blue"></div>
+                <div class="rv__body"><span class="rv__title">حشو ضرس العقل</span><span class="rv__date">١٢ مارس ٢٠٢٥</span></div>
+                <span class="rv__tag rv__tag--done">مكتمل</span>
+              </div>
+              <div class="rv">
+                <div class="rv__dot rv__dot--grey"></div>
+                <div class="rv__body"><span class="rv__title">تنظيف وتلميع</span><span class="rv__date">٣ يناير ٢٠٢٥</span></div>
+                <span class="rv__tag rv__tag--done">مكتمل</span>
+              </div>
+              <div class="rv">
+                <div class="rv__dot rv__dot--amber"></div>
+                <div class="rv__body"><span class="rv__title">تركيب تاج</span><span class="rv__date">٢٠ أبريل ٢٠٢٥</span></div>
+                <span class="rv__tag rv__tag--upcoming">قادم</span>
+              </div>
+            </div>
+            <div class="rcard__rx">
+              <span class="rx__label">💊 آخر وصفة</span>
+              <span class="rx__val">أموكسيسيلين ٥٠٠ ملغ × ٧ أيام</span>
+            </div>
+          </div>
+
+          <div class="fp__chip fp__chip--indigo">
+            <span class="chip__val">١ نقرة</span>
+            <span class="chip__lbl">تصدير PDF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Panel 3 · Analytics ── -->
+    <div class="fp" id="fp-3">
+      <div class="fp__bg fp__bg--analytics" aria-hidden="true">
+        <div class="fp__bg-deco fp__bg-deco--dots"></div>
+        <div class="fp__bg-glow fp__bg-glow--sky"></div>
+      </div>
+
+      <div class="fp__inner">
+        <div class="fp__copy reveal">
+          <span class="fp__num">٠٣</span>
+          <span class="section-tag">التقارير والتحليلات</span>
+          <h2 class="fp__title">بياناتك تتحدث —<br>استمع إليها</h2>
+          <p class="fp__desc">لوحة تحكم حية تعرض أداء عيادتك: أكثر الخدمات طلباً، معدل الالتزام بالمواعيد، والإيرادات — كل شيء في نظرة واحدة.</p>
+          <ul class="fp__list">
+            <li><span class="fp__bullet">✦</span> تقارير شهرية وسنوية تلقائية</li>
+            <li><span class="fp__bullet">✦</span> مقارنة الأداء بين الفترات</li>
+            <li><span class="fp__bullet">✦</span> تصدير Excel وPDF فوري</li>
+          </ul>
+        </div>
+
+        <div class="fp__visual reveal reveal--delay">
+          <div class="achart">
+            <div class="achart__head">
+              <span class="achart__title">أداء العيادة</span>
+              <span class="achart__period">مارس ٢٠٢٥</span>
+            </div>
+            <div class="achart__kpis">
+              <div class="kpi kpi--blue"><span class="kpi__val">١٨٤</span><span class="kpi__lbl">زيارة</span></div>
+              <div class="kpi kpi--green"><span class="kpi__val">٩٢٪</span><span class="kpi__lbl">التزام</span></div>
+              <div class="kpi kpi--violet"><span class="kpi__val">↑١٨٪</span><span class="kpi__lbl">نمو</span></div>
+            </div>
+            <!-- SVG area chart -->
+            <div class="achart__svg-wrap">
+              <svg viewBox="0 0 280 80" preserveAspectRatio="none" class="achart__svg">
+                <defs>
+                  <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3B82F6" stop-opacity=".18"/>
+                    <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="20" x2="280" y2="20" stroke="#E2E8F0" stroke-width="1"/>
+                <line x1="0" y1="40" x2="280" y2="40" stroke="#E2E8F0" stroke-width="1"/>
+                <line x1="0" y1="60" x2="280" y2="60" stroke="#E2E8F0" stroke-width="1"/>
+                <path d="M0 60 C35 52 55 62 85 44 C115 26 135 48 162 32 C188 16 210 40 240 24 C258 15 270 18 280 12 L280 80 L0 80Z" fill="url(#ag)"/>
+                <path d="M0 60 C35 52 55 62 85 44 C115 26 135 48 162 32 C188 16 210 40 240 24 C258 15 270 18 280 12" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="280" cy="12" r="4" fill="#3B82F6"/>
+                <circle cx="280" cy="12" r="8" fill="#3B82F6" opacity=".15"/>
+              </svg>
+            </div>
+            <!-- Bar breakdown -->
+            <div class="achart__bars">
+              <div class="ab">
+                <span class="ab__lbl">تلبيس</span>
+                <div class="ab__track"><div class="ab__fill ab__fill--blue" style="--w:72%"></div></div>
+                <span class="ab__pct">٧٢٪</span>
+              </div>
+              <div class="ab">
+                <span class="ab__lbl">تقويم</span>
+                <div class="ab__track"><div class="ab__fill ab__fill--indigo" style="--w:54%"></div></div>
+                <span class="ab__pct">٥٤٪</span>
+              </div>
+              <div class="ab">
+                <span class="ab__lbl">تنظيف</span>
+                <div class="ab__track"><div class="ab__fill ab__fill--sky" style="--w:88%"></div></div>
+                <span class="ab__pct">٨٨٪</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fp__chip fp__chip--sky">
+            <span class="chip__val">↑١٨٪</span>
+            <span class="chip__lbl">نمو هذا الشهر</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll-progress dots -->
+    <div class="features__dots" aria-hidden="true">
+      <div class="fd" data-fp="fp-1"></div>
+      <div class="fd" data-fp="fp-2"></div>
+      <div class="fd" data-fp="fp-3"></div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       TESTIMONIALS
+  ========================================================= -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials__wrap">
+
+      <div class="testimonials__header reveal">
+        <span class="section-tag">آراء العملاء</span>
+        <h2 class="testimonials__title">أطباء يتحدثون بصدق</h2>
+        <p class="testimonials__sub">تجارب حقيقية من عيادات تستخدم دنتا يومياً</p>
+      </div>
+
+      <div class="testimonials__grid">
+
+        <article class="tc reveal" style="--td:.05s">
+          <blockquote class="tc__quote">"</blockquote>
+          <p class="tc__text">قبل دنتا كنت أضيع ساعة كل صباح في ترتيب الملفات الورقية. الآن أفتح اللابتوب وكل شيء أمامي. وفّر عليّ ساعات أسبوعياً.</p>
+          <div class="tc__author">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DrAhmedM&backgroundColor=dbeafe" alt="د. أحمد" width="44" height="44" />
+            <div class="tc__author-info">
+              <strong>د. أحمد المحمد</strong>
+              <span>طبيب أسنان عام · الرياض</span>
+            </div>
+            <div class="tc__stars">★★★★★</div>
+          </div>
+        </article>
+
+        <article class="tc tc--featured reveal" style="--td:.15s">
+          <blockquote class="tc__quote">"</blockquote>
+          <p class="tc__text">التذكيرات التلقائية وحدها غيّرت العيادة. نسبة حضور المرضى ارتفعت بشكل ملحوظ، والمرضى يشكرونني على التذكير! الدعم الفني سريع جداً.</p>
+          <div class="tc__author">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DrSaraZ&backgroundColor=fce7f3" alt="د. سارة" width="44" height="44" />
+            <div class="tc__author-info">
+              <strong>د. سارة الزهراني</strong>
+              <span>اختصاصية تقويم · جدة</span>
+            </div>
+            <div class="tc__stars">★★★★★</div>
+          </div>
+        </article>
+
+        <article class="tc reveal" style="--td:.25s">
+          <blockquote class="tc__quote">"</blockquote>
+          <p class="tc__text">لدينا ٣ فروع ودنتا يربطهم في مكان واحد. أتابع أداء كل فرع من هاتفي. لو كنت أعرفه بدري كنت اشتركت أول يوم فتحت العيادة.</p>
+          <div class="tc__author">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=DrKhaledB&backgroundColor=dcfce7" alt="د. خالد" width="44" height="44" />
+            <div class="tc__author-info">
+              <strong>د. خالد البكر</strong>
+              <span>مدير سلسلة عيادات · دبي</span>
+            </div>
+            <div class="tc__stars">★★★★★</div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="testimonials__cta reveal">
+        <a href="#" class="btn btn--primary btn--lg">ابدأ تجربتك المجانية ٣٠ يوماً</a>
+        <p class="testimonials__note">لا حاجة لبطاقة ائتمانية · إلغاء في أي وقت</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+  <footer class="footer" id="footer">
+    <div class="footer__inner">
+
+      <div class="footer__brand">
+        <a href="#" class="nav__logo">
+          <svg class="nav__logo-mark" viewBox="0 0 36 40" fill="none" aria-hidden="true">
+            <path d="M18 1C10.5 1 3 7 3 15c0 4 1.5 7.5 4 10.5L9.5 37C10 39.5 11.5 40 13 40s2.5-1 3-3.5L18 30l2 6.5c.5 2.5 1.5 3.5 3 3.5s3-.5 3.5-3L29 25.5C31.5 22.5 33 19 33 15 33 7 25.5 1 18 1z" fill="url(#fGrad)"/>
+            <defs><linearGradient id="fGrad" x1="3" y1="1" x2="33" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs>
+          </svg>
+          <span class="nav__logo-text" style="color:white">دنتا</span>
+        </a>
+        <p class="footer__tagline">منصة إدارة عيادات الأسنان الأولى عربياً</p>
+
+        <!-- Social media icons -->
+        <div class="footer__social">
+          <a href="#" class="sicon" aria-label="تويتر / X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="sicon" aria-label="انستغرام">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="sicon" aria-label="لينكدإن">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="sicon" aria-label="واتساب">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.849L0 24l6.335-1.652A11.956 11.956 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.978 9.978 0 0 1-5.065-1.372l-.363-.214-3.766.982.999-3.68-.236-.375A9.968 9.968 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4>المنتج</h4>
+          <ul>
+            <li><a href="#">المميزات</a></li>
+            <li><a href="#">الأسعار</a></li>
+            <li><a href="#">الجديد</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>الشركة</h4>
+          <ul>
+            <li><a href="#">من نحن</a></li>
+            <li><a href="#">المدونة</a></li>
+            <li><a href="#">وظائف</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>الدعم</h4>
+          <ul>
+            <li><a href="#">مركز المساعدة</a></li>
+            <li><a href="#">تواصل معنا</a></li>
+            <li><a href="#">حالة الخدمة</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>© ٢٠٢٥ دنتا. جميع الحقوق محفوظة.</span>
+      <span>صُنع بـ 💙 للأطباء العرب</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
