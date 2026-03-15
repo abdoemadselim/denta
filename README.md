@@ -1,10 +1,6 @@
-Here is the **same design specification converted into clean Markdown** so you can place it directly in your **project documentation / GitHub README / design document**.
-
----
-
 # Denta System — UI Structure & Design Specification
 
-This document defines the **internal system pages and UI design**, aligned with the **landing page theme**.
+This document defines the **internal system pages and UI design**
 
 The design follows a **modern SaaS interface** with:
 
